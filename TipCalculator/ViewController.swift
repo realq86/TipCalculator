@@ -29,5 +29,16 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
         
     }
+    
+    
+    
+    @IBAction func editingDidEnd(_ sender: AnyObject) {
+        
+        if let costTextField = sender as? UITextField {
+
+            //Print to Terminal
+            print("Bill = %@", costTextField.text!)
+        }
+    }
 }
 
