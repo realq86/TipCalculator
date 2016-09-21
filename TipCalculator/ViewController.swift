@@ -36,8 +36,15 @@ class ViewController: UIViewController {
         
         if let costTextField = sender as? UITextField {
 
-            //Print to Terminal
             print("Bill = %@", costTextField.text!)
+            
+            let costDouble = Double(costTextField.text!) ?? 0
+            
+            let tip = costDouble * 0.2
+            print("Tip = \(tip)")
+
+            let total = costDouble + tip
+            print("Total = \(total)")
         }
     }
 }
