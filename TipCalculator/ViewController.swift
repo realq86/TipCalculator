@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
     
+    let tipAmountArray = [0.15, 0.20, 0.25]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
