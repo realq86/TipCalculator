@@ -23,5 +23,11 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func touchOutsideTextField(_ sender: AnyObject) {
+        print("Touch outside textfield")
+        
+        self.view.endEditing(true)
+        
+    }
 }
 

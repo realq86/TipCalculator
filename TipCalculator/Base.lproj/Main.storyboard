@@ -108,6 +108,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ag2-9Q-9pc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0e1-EL-kDm"/>
                             <constraint firstItem="MSS-Fq-4D3" firstAttribute="top" secondItem="Ag2-9Q-9pc" secondAttribute="bottom" id="1UN-GH-vCi"/>
@@ -126,6 +127,9 @@
                             <constraint firstItem="e3e-na-DtZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="sPj-l3-GKn"/>
                             <constraint firstItem="grP-4b-oS1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="u96-6h-gUf"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="qA5-Me-2k8" appends="YES" id="B1J-a5-YXh"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="tipLabel" destination="Sjz-5s-dyr" id="PTp-MV-Xkx"/>
@@ -133,6 +137,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="qA5-Me-2k8">
+                    <connections>
+                        <action selector="touchOutsideTextField:" destination="BYZ-38-t0r" id="BnY-yN-sHW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
