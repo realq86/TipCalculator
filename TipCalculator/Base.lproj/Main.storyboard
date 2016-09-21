@@ -57,6 +57,9 @@
                                             <segment title="20%"/>
                                             <segment title="25%"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="valueChanged" id="V2q-sr-EYk"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,6 +144,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="billLabel" destination="sOc-86-fUR" id="7WX-v7-1vR"/>
                         <outlet property="tipLabel" destination="Sjz-5s-dyr" id="PTp-MV-Xkx"/>
                         <outlet property="tipLevelSegmentControll" destination="pxP-aI-Rgi" id="Zg9-na-h6p"/>
                         <outlet property="totalLabel" destination="UMc-aI-fZj" id="wpg-l1-gNq"/>

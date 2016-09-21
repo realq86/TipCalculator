@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var billLabel: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
@@ -39,20 +41,18 @@ class ViewController: UIViewController {
     
     @IBAction func editingDidEnd(_ sender: AnyObject) {
         
-        if let costTextField = sender as? UITextField {
+        print("Bill = %@", billLabel.text)
+        let costDouble = Double(self.billLabel.text!) ?? 0
+        let tip = costDouble * self.currentTipLevel()
+        self.changeTipToValue(tip)
 
-            print("Bill = %@", costTextField.text!)
-            
-            let costDouble = Double(costTextField.text!) ?? 0
-            
-            let tip = costDouble * self.currentTipLevel()
-            self.changeTipToValue(tip)
-
-            let total = costDouble + tip
-            self.changeTotalToValue(total)
-        }
+        let total = costDouble + tip
+        self.changeTotalToValue(total)
     }
     
+    @IBAction func segmentControlValueChanged(_ sender: AnyObject) {
+        print("Value Changed to %d", self.tipLevelSegmentControll.selectedSegmentIndex)
+    }
     func changeTipToValue(_ value:Double) {
         print("Tip = \(value)")
         self.tipLabel.text = String(format: "$%.2f", value)
