@@ -37,8 +37,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func editingDidEnd(_ sender: AnyObject) {
         
         if let costTextField = sender as? UITextField {
@@ -47,7 +45,7 @@ class ViewController: UIViewController {
             
             let costDouble = Double(costTextField.text!) ?? 0
             
-            let tip = costDouble * self.tipAmountArray[self.tipLevelSegmentControll.selectedSegmentIndex]
+            let tip = costDouble * self.currentTipLevel()
             self.changeTipToValue(tip)
 
             let total = costDouble + tip
@@ -65,5 +63,8 @@ class ViewController: UIViewController {
         self.totalLabel.text = String(format: "$%.2f", value)
     }
     
+    func currentTipLevel()->Double {
+        return self.tipAmountArray[self.tipLevelSegmentControll.selectedSegmentIndex]
+    }
 }
 
