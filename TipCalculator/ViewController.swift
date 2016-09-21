@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             
             let costDouble = Double(costTextField.text!) ?? 0
             
-            let tip = costDouble * 0.2
+            let tip = costDouble * self.tipAmountArray[self.tipLevelSegmentControll.selectedSegmentIndex]
             self.changeTipToValue(tip)
 
             let total = costDouble + tip
