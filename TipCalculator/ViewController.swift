@@ -45,11 +45,22 @@ class ViewController: UIViewController {
             let costDouble = Double(costTextField.text!) ?? 0
             
             let tip = costDouble * 0.2
-            print("Tip = \(tip)")
+            self.changeTipToValue(tip)
 
             let total = costDouble + tip
-            print("Total = \(total)")
+            self.changeTotalToValue(total)
         }
     }
+    
+    func changeTipToValue(_ value:Double) {
+        print("Tip = \(value)")
+        self.tipLabel.text = String(format: "$%.2f", value)
+    }
+    
+    func changeTotalToValue(_ value:Double) {
+        print("Total = \(value)")
+        self.totalLabel.text = String(format: "$%.2f", value)
+    }
+    
 }
 
