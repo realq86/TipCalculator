@@ -10,9 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.loadDefualtSettings()
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +23,15 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadDefualtSettings() {
+        let userDefualts = UserDefaults.standard
+        let defaultLevel = userDefualts.integer(forKey: "Defualt_Tip_Level")
+        self.tipLevelSegmentControll.selectedSegmentIndex = defaultLevel
     }
-    */
-
+    
+    @IBAction func tipLevelSegmentChanged(_ sender: AnyObject) {
+        let tipLevel = self.tipLevelSegmentControll.selectedSegmentIndex
+        let userDefualts = UserDefaults.standard
+        userDefualts.set(tipLevel, forKey: "Defualt_Tip_Level")
+    }
 }
