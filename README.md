@@ -5,7 +5,7 @@ This project is following the instruction found at this link: https://courses.co
 
 The current version follows the instruction as closely as possible and use variations to my own style only on parts where the instructions were not specifc on what is required.
 
-Basic features:
+BASIC FEATURES:
 
 Main calculator view that accepts 2 user inputs: 
   - Total amount of the bill.
@@ -13,7 +13,7 @@ Main calculator view that accepts 2 user inputs:
 Settings view that allows the user to choose 1 of 3 tip level to be saved into local storage as the default for the main calculator view.
 Setting default values in the correct time of the View Controller Life Cycle.
 
-Optional features:
+OPTIONAL FEATURES:
 
 Autolayout for all the views.
 UIAnimation to change the alpha values of the tips and total amount field before and after user inputs the bill amount.
