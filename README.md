@@ -20,3 +20,4 @@ UIAnimation to change the alpha values of the tips and total amount field before
 
 DEMO
 [https://cloud.githubusercontent.com/assets/5937001/18765684/9fe41be0-80cb-11e6-8afe-4f0e798b0042.gif]
+![alt tag](https://cloud.githubusercontent.com/assets/5937001/18765684/9fe41be0-80cb-11e6-8afe-4f0e798b0042.gif)
