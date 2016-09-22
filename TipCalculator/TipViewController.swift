@@ -33,6 +33,7 @@ class TipViewController: UIViewController {
 
         print("viewDidLoad")
         
+        //Lead with Tips and Total alpha setting at 10%
         self.tipShadeAlpha.alpha = 0.1;
         self.totalShadeAlpha.alpha = 0.1;
     }
@@ -83,6 +84,7 @@ class TipViewController: UIViewController {
     @IBAction func editingDidEnd(_ sender: AnyObject) {
         self.updateAllFields()
         
+        //Return alpha values of tips and total label back to 1.
         weak var weakSelf = self
         UIView.animate(withDuration: 0.5) {
             var strongSelf = weakSelf
@@ -93,6 +95,7 @@ class TipViewController: UIViewController {
     
     @IBAction func editingDidBegin(_ sender: AnyObject) {
         
+        //Clear labels when editing begins.
         self.billLabel.text = ""
         self.tipLabel.text = ""
         self.totalLabel.text = ""
