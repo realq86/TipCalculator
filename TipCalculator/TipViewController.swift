@@ -17,7 +17,6 @@ class TipViewController: UIViewController {
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
     
     let tipAmountArray = [0.15, 0.20, 0.25]
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +39,6 @@ class TipViewController: UIViewController {
         self.tipLevelSegmentControll.selectedSegmentIndex = defaultLevel
         
         self.billLabel.placeholder = "Whats the damage this time?"
-        
-        
     }
 
 
@@ -63,9 +60,6 @@ class TipViewController: UIViewController {
         self.changeTotalToValue(total)
     }
     
-    @IBAction func segmentControlValueChanged(_ sender: AnyObject) {
-        print("Value Changed to %d", self.tipLevelSegmentControll.selectedSegmentIndex)
-    }
     func changeTipToValue(_ value:Double) {
         print("Tip = \(value)")
         self.tipLabel.text = String(format: "$%.2f", value)
