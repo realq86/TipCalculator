@@ -30,6 +30,7 @@ class TipViewController: UIViewController {
         print("viewWillAppear")
         self.loadDefualtSettings()
         self.updateAllFields()
+        self.billLabel.becomeFirstResponder()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +67,7 @@ class TipViewController: UIViewController {
         print("Touch outside textfield")
         
         self.view.endEditing(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func editingDidEnd(_ sender: AnyObject) {
