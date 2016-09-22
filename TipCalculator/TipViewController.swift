@@ -23,12 +23,25 @@ class TipViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.loadDefualtSettings()
         print("test")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func loadDefualtSettings() {
+        let userDefualts = UserDefaults.standard
+        
+        let defaultLevel = userDefualts.integer(forKey: "Defualt Tip Level")
+        self.tipLevelSegmentControll.selectedSegmentIndex = defaultLevel
+        
+        self.billLabel.placeholder = "Whats the damage this time?"
+        
+        
     }
 
 

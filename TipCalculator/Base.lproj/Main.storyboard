@@ -21,12 +21,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grP-4b-oS1">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-86-fUR">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Whats the damage this time?" textAlignment="right" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="sOc-86-fUR">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="g14-x9-9jo"/>
+                                            <constraint firstAttribute="width" constant="200" id="g14-x9-9jo"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Amw-zb-y6x"/>
