@@ -68,4 +68,5 @@ OPTIONAL FEATURES:
 
 Autolayout for all the views.
 UIAnimation to change the alpha values of the tips and total amount field before and after user inputs the bill amount.
+
 ![alt tag](https://cloud.githubusercontent.com/assets/5937001/18765684/9fe41be0-80cb-11e6-8afe-4f0e798b0042.gif)
