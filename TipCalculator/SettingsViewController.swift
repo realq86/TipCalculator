@@ -27,9 +27,6 @@ class SettingsViewController: UIViewController {
         self.thirdPane.isHidden = true
 //        self.fourthPane.isHidden = true
         self.fifthPane.isHidden = true
-        
-//        self.instructionPane.layer.borderColor = UIColor.gray.cgColor
-//        self.instructionPane.layer.borderWidth = 1.0
     }
 
     override func didReceiveMemoryWarning() {

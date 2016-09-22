@@ -31,6 +31,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
+                                                    <action selector="editingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="KTc-ry-JWP"/>
                                                     <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Amw-zb-y6x"/>
                                                 </connections>
                                             </textField>
@@ -50,7 +51,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="V2h-IE-PW8" firstAttribute="top" secondItem="grP-4b-oS1" secondAttribute="top" constant="4" id="6CL-WE-WLc"/>
                                     <constraint firstAttribute="trailing" secondItem="V2h-IE-PW8" secondAttribute="trailing" id="6X8-IF-aPa"/>
@@ -86,43 +87,12 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="oRT-np-hFJ" secondAttribute="bottom" constant="4" id="Le0-7O-xAR"/>
                                     <constraint firstAttribute="trailing" secondItem="oRT-np-hFJ" secondAttribute="trailing" id="SsD-oU-uiP"/>
                                     <constraint firstItem="oRT-np-hFJ" firstAttribute="leading" secondItem="Ag2-9Q-9pc" secondAttribute="leading" id="diw-MB-wn2"/>
                                     <constraint firstItem="oRT-np-hFJ" firstAttribute="top" secondItem="Ag2-9Q-9pc" secondAttribute="top" constant="4" id="eSY-ds-OiG"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSS-Fq-4D3" userLabel="SegmentView">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-Hp-jj0">
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pxP-aI-Rgi">
-                                                <segments>
-                                                    <segment title="15%"/>
-                                                    <segment title="20%"/>
-                                                    <segment title="25%"/>
-                                                </segments>
-                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="valueChanged" id="V2q-sr-EYk"/>
-                                                </connections>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.7008890086206897" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerY" secondItem="ynm-Hp-jj0" secondAttribute="centerY" id="TbB-eN-FcG"/>
-                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="leading" secondItem="ynm-Hp-jj0" secondAttribute="leading" constant="10" id="pBO-9o-tmg"/>
-                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerX" secondItem="ynm-Hp-jj0" secondAttribute="centerX" id="py3-zj-Gpn"/>
-                                            <constraint firstAttribute="trailing" secondItem="pxP-aI-Rgi" secondAttribute="trailing" constant="10" id="skc-uE-cjn"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ynm-Hp-jj0" secondAttribute="bottom" constant="4" id="7Wb-dP-zE1"/>
-                                    <constraint firstItem="ynm-Hp-jj0" firstAttribute="top" secondItem="MSS-Fq-4D3" secondAttribute="top" constant="4" id="bF0-fQ-e19"/>
-                                    <constraint firstAttribute="trailing" secondItem="ynm-Hp-jj0" secondAttribute="trailing" id="eeQ-7p-PKy"/>
-                                    <constraint firstItem="ynm-Hp-jj0" firstAttribute="leading" secondItem="MSS-Fq-4D3" secondAttribute="leading" id="xLY-Br-16B"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3e-na-DtZ" userLabel="TotalView">
@@ -153,6 +123,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="66L-eC-dmb" firstAttribute="leading" secondItem="e3e-na-DtZ" secondAttribute="leading" id="69l-zv-BeA"/>
                                     <constraint firstItem="66L-eC-dmb" firstAttribute="top" secondItem="e3e-na-DtZ" secondAttribute="top" constant="4" id="8Nv-Sh-D2d"/>
@@ -160,34 +131,68 @@
                                     <constraint firstAttribute="trailing" secondItem="66L-eC-dmb" secondAttribute="trailing" id="jqF-o2-Ez9"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSS-Fq-4D3" userLabel="SegmentView">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynm-Hp-jj0">
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pxP-aI-Rgi">
+                                                <segments>
+                                                    <segment title="15%"/>
+                                                    <segment title="20%"/>
+                                                    <segment title="25%"/>
+                                                </segments>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="valueChanged" id="V2q-sr-EYk"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.7008890086206897" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerY" secondItem="ynm-Hp-jj0" secondAttribute="centerY" id="TbB-eN-FcG"/>
+                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="leading" secondItem="ynm-Hp-jj0" secondAttribute="leading" constant="10" id="pBO-9o-tmg"/>
+                                            <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerX" secondItem="ynm-Hp-jj0" secondAttribute="centerX" id="py3-zj-Gpn"/>
+                                            <constraint firstAttribute="trailing" secondItem="pxP-aI-Rgi" secondAttribute="trailing" constant="10" id="skc-uE-cjn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ynm-Hp-jj0" secondAttribute="bottom" constant="4" id="7Wb-dP-zE1"/>
+                                    <constraint firstItem="ynm-Hp-jj0" firstAttribute="top" secondItem="MSS-Fq-4D3" secondAttribute="top" constant="4" id="bF0-fQ-e19"/>
+                                    <constraint firstAttribute="trailing" secondItem="ynm-Hp-jj0" secondAttribute="trailing" id="eeQ-7p-PKy"/>
+                                    <constraint firstItem="ynm-Hp-jj0" firstAttribute="leading" secondItem="MSS-Fq-4D3" secondAttribute="leading" id="xLY-Br-16B"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Ag2-9Q-9pc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0e1-EL-kDm"/>
-                            <constraint firstItem="MSS-Fq-4D3" firstAttribute="top" secondItem="Ag2-9Q-9pc" secondAttribute="bottom" id="1UN-GH-vCi"/>
+                            <constraint firstItem="e3e-na-DtZ" firstAttribute="top" secondItem="Ag2-9Q-9pc" secondAttribute="bottom" id="DA8-Ku-8U5"/>
                             <constraint firstItem="Ag2-9Q-9pc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="DKQ-gM-p5N"/>
+                            <constraint firstItem="Ag2-9Q-9pc" firstAttribute="top" secondItem="MSS-Fq-4D3" secondAttribute="bottom" id="EFh-57-vXN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="e3e-na-DtZ" secondAttribute="bottom" id="FB8-1u-837"/>
-                            <constraint firstItem="MSS-Fq-4D3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ff8-bx-4Ke"/>
-                            <constraint firstAttribute="trailing" secondItem="MSS-Fq-4D3" secondAttribute="trailing" id="GLa-Zn-rHe"/>
                             <constraint firstItem="e3e-na-DtZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J6O-jU-uzQ"/>
                             <constraint firstItem="grP-4b-oS1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qdp-er-lih"/>
                             <constraint firstAttribute="trailing" secondItem="e3e-na-DtZ" secondAttribute="trailing" id="Qpb-qA-yky"/>
                             <constraint firstItem="grP-4b-oS1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="R07-0i-bi1"/>
-                            <constraint firstItem="e3e-na-DtZ" firstAttribute="top" secondItem="MSS-Fq-4D3" secondAttribute="bottom" id="WwL-sb-dBV"/>
-                            <constraint firstItem="Ag2-9Q-9pc" firstAttribute="top" secondItem="grP-4b-oS1" secondAttribute="bottom" id="bRb-wE-VT4"/>
+                            <constraint firstItem="Ag2-9Q-9pc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="R6H-GO-Iaq"/>
+                            <constraint firstAttribute="trailing" secondItem="MSS-Fq-4D3" secondAttribute="trailing" id="UP2-X4-ilZ"/>
                             <constraint firstAttribute="trailing" secondItem="Ag2-9Q-9pc" secondAttribute="trailing" id="ffp-aj-i0A"/>
                             <constraint firstAttribute="trailing" secondItem="grP-4b-oS1" secondAttribute="trailing" id="oyc-Kk-lXD"/>
+                            <constraint firstItem="MSS-Fq-4D3" firstAttribute="top" secondItem="grP-4b-oS1" secondAttribute="bottom" id="pnm-uy-iEz"/>
                             <constraint firstItem="e3e-na-DtZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="sPj-l3-GKn"/>
                             <constraint firstItem="grP-4b-oS1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="u96-6h-gUf"/>
+                            <constraint firstItem="MSS-Fq-4D3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uHP-uH-Zpa"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="qA5-Me-2k8" appends="YES" id="B1J-a5-YXh"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="w30-kH-3VX">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="Lkj-5w-um3"/>
+                        <barButtonItem key="backBarButtonItem" title="Calc" id="8iq-9s-fCt"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="1wH-ZR-5TG">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="iia-J2-MBK" kind="show" id="pm3-JS-Qf2"/>
                             </connections>
@@ -197,7 +202,9 @@
                         <outlet property="billLabel" destination="sOc-86-fUR" id="7WX-v7-1vR"/>
                         <outlet property="tipLabel" destination="Sjz-5s-dyr" id="PTp-MV-Xkx"/>
                         <outlet property="tipLevelSegmentControll" destination="pxP-aI-Rgi" id="Zg9-na-h6p"/>
+                        <outlet property="tipShadeAlpha" destination="oRT-np-hFJ" id="rzh-kf-8S2"/>
                         <outlet property="totalLabel" destination="UMc-aI-fZj" id="wpg-l1-gNq"/>
+                        <outlet property="totalShadeAlpha" destination="66L-eC-dmb" id="KeQ-9N-aCG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -227,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="-18" y="36"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="pxv-oK-306">
             <objects>
                 <viewController id="iia-J2-MBK" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -365,13 +372,8 @@
                             <constraint firstAttribute="trailing" secondItem="gB5-nx-Tle" secondAttribute="trailing" id="qMk-sg-of9"/>
                             <constraint firstItem="IPF-pO-xSn" firstAttribute="top" secondItem="gB5-nx-Tle" secondAttribute="bottom" id="yTq-jV-pCG"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="8yr-7m-9Ot" appends="YES" id="oiu-Ad-tWl"/>
-                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="JMR-fv-SJB">
-                        <barButtonItem key="backBarButtonItem" title=" " id="hlB-xg-1ri"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bgC-L8-YSd"/>
                     <connections>
                         <outlet property="fifthPane" destination="IPF-pO-xSn" id="caF-Lz-Ki4"/>
                         <outlet property="instructionPane" destination="U4h-lq-Jhw" id="aRr-QU-oGN"/>
@@ -382,9 +384,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CJ-lf-Tdz" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8yr-7m-9Ot"/>
             </objects>
             <point key="canvasLocation" x="1665" y="35.91549295774648"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
 </document>

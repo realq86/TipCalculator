@@ -21,16 +21,26 @@ class TipViewController: UIViewController {
     var tipValue = 0.00
     var totalValue = 0.00
     
+    @IBOutlet weak var tipShadeAlpha: UIView!
+    @IBOutlet weak var totalShadeAlpha: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //This can be moved to viewWillAppear if it is desired for the keyboard to pop up even on returning from Settings.
+        self.billLabel.becomeFirstResponder()
+
         print("viewDidLoad")
+        
+        self.tipShadeAlpha.alpha = 0.1;
+        self.totalShadeAlpha.alpha = 0.1;
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
         self.loadDefualtSettings()
         self.updateAllFields()
-        self.billLabel.becomeFirstResponder()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +82,24 @@ class TipViewController: UIViewController {
     
     @IBAction func editingDidEnd(_ sender: AnyObject) {
         self.updateAllFields()
+        
+        weak var weakSelf = self
+        UIView.animate(withDuration: 0.5) {
+            var strongSelf = weakSelf
+            strongSelf?.tipShadeAlpha.alpha = 1
+            strongSelf?.totalShadeAlpha.alpha = 1
+        }
     }
+    
+    @IBAction func editingDidBegin(_ sender: AnyObject) {
+        
+        self.billLabel.text = ""
+        self.tipLabel.text = ""
+        self.totalLabel.text = ""
+        self.tipShadeAlpha.alpha = 0.1;
+        self.totalShadeAlpha.alpha = 0.1;
+    }
+    
     
 /*       View manipulation code   */
     
