@@ -12,10 +12,24 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
     
+    @IBOutlet weak var instructionPane: UIView!
+    @IBOutlet weak var segmentView: UIView!
+    @IBOutlet weak var secondPane: UIView!
+    @IBOutlet weak var thirdPane: UIView!
+    @IBOutlet weak var fifthPane: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadDefualtSettings()
         // Do any additional setup after loading the view.
+        self.secondPane.isHidden = true
+        self.thirdPane.isHidden = true
+//        self.fourthPane.isHidden = true
+        self.fifthPane.isHidden = true
+        
+//        self.instructionPane.layer.borderColor = UIColor.gray.cgColor
+//        self.instructionPane.layer.borderWidth = 1.0
     }
 
     override func didReceiveMemoryWarning() {
