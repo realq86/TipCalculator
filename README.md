@@ -1,5 +1,7 @@
 # TipCalculator
 
+CREDIT: Thanks to Daniel McGlaughlin, for the masterful design tips on color and fonts.
+
 This is my first attempt at the CoderPath's iOS bootcamp application pre-work "iOS Pre-work: Tip Calculator App."
 This project is following the instruction found at this link: https://courses.codepath.com/snippets/intro_to_ios/prework.md
 
