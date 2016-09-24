@@ -22,6 +22,7 @@ class TipViewController: UIViewController {
     var tipValue = 0.00
     var totalValue = 0.00
     let decimalHandler = NSDecimalNumberHandler(roundingMode: .up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
+    let currencyFormatter = NumberFormatter()
     
     @IBOutlet weak var tipShadeAlpha: UIView!
     @IBOutlet weak var totalShadeAlpha: UIView!
@@ -77,6 +78,8 @@ class TipViewController: UIViewController {
         
         let defaultLevel = userDefualts.integer(forKey: "Defualt_Tip_Level")
         self.setCurrentTipLevel(defaultLevel)
+        
+        self.currencyFormatter.numberStyle = .currency
     }
 
 
@@ -115,12 +118,19 @@ class TipViewController: UIViewController {
     
     func changeTipToValue(_ value:Double) {
         print("Tip = \(value)")
+        
         self.tipLabel.text = String(format: "$%.2f", value)
+    }
+    func changeTipToDecimal(_ tipDecimal:NSDecimalNumber) {
+        self.tipLabel.text = currencyFormatter.string(from: tipDecimal)!
     }
     
     func changeTotalToValue(_ value:Double) {
         print("Total = \(value)")
         self.totalLabel.text = String(format: "$%.2f", value)
+    }
+    func changeTotalToDecimal(_ totalDecimal:NSDecimalNumber) {
+        self.totalLabel.text = currencyFormatter.string(from: totalDecimal)!
     }
     
     func currentTipLevel()->Double {
