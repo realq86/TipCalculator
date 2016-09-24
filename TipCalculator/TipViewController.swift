@@ -142,9 +142,22 @@ class TipViewController: UIViewController {
         return tip
     }
     
-    func calculateNewTotalValue(costDouble:Double, tipDouble:Double) ->Double {
+    func calculateNewTipDecimal(_ decimal:NSDecimalNumber) ->NSDecimalNumber {
+        let tipLevel = self.tipDecimalArray[self.tipLevelSegmentControll.selectedSegmentIndex]
+        let tipLevelDecimal = NSDecimalNumber(string: tipLevel)
+        print(tipLevelDecimal)
+        print(decimal)
+        let tip = decimal.multiplying(by: tipLevelDecimal, withBehavior: self.decimalHandler)
+        return tip
+    }
+    
+    func calculateNewTotalValue(_ costDouble:Double, _ tipDouble:Double) ->Double {
         let total = costDouble + tipDouble
         return total
+    }
+    
+    func calculateNewTotalDecimal(_ costDecimal:NSDecimalNumber, _ tipDecimal:NSDecimalNumber)->NSDecimalNumber {
+        return costDecimal.adding(tipDecimal)
     }
     
 
