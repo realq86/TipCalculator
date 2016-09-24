@@ -128,13 +128,14 @@ class TipViewController: UIViewController {
 /*       Math calculation code can be extracted to other class if needed   */
     
     func updateAllFields() {
-        let costDouble = Double(self.billLabel.text!) ?? 0
+
+        let billString = self.billLabel.text
+        let costDecimal = NSDecimalNumber(string: billString)
+        let tipDecimal = self.calculateNewTipDecimal(costDecimal)
+        self.changeTipToDecimal(tipDecimal)
         
-        let tip = self.caculateNewTipValue(costDouble)
-        self.changeTipToValue(tip)
-        
-        let total = self.calculateNewTotalValue(costDouble: costDouble, tipDouble: tip)
-        self.changeTotalToValue(total)
+        let total = self.calculateNewTotalDecimal(costDecimal, tipDecimal)
+        self.changeTotalToDecimal(total)
     }
     
     func caculateNewTipValue(_ costDouble:Double) ->Double {
