@@ -21,7 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 * [X] Autolayout in Storyboard so design remain consistent in landscape mode.
-
+* [X] Use of NSDecimalNumber to increase percision towards the context of currency.
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
