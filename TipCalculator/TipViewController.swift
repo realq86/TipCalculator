@@ -147,7 +147,13 @@ class TipViewController: UIViewController {
     
     func updateAllFields() {
 
-        let billString = self.billLabel.text
+        var billString:String
+        if self.billLabel.text == "" {
+            billString = "0.00"
+        }
+        else {
+            billString = self.billLabel.text!
+        }
         let costDecimal = NSDecimalNumber(string: billString)
         let tipDecimal = self.calculateNewTipDecimal(costDecimal)
         self.changeTipToDecimal(tipDecimal)
