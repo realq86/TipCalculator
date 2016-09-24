@@ -36,6 +36,11 @@ class TipViewController: UIViewController {
         //Lead with Tips and Total alpha setting at 10%
         self.tipShadeAlpha.alpha = 0.1;
         self.totalShadeAlpha.alpha = 0.1;
+        
+        self.billLabel.text = "0.00"
+        self.tipLabel.text = "0.00"
+        self.totalLabel.text = "0.00"
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
