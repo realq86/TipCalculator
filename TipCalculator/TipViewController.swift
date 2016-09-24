@@ -18,8 +18,10 @@ class TipViewController: UIViewController {
     
     let tipAmountArray = [0.15, 0.20, 0.25]
     
+    let tipDecimalArray = [".15", ".2", ".25"]
     var tipValue = 0.00
     var totalValue = 0.00
+    let decimalHandler = NSDecimalNumberHandler(roundingMode: .up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
     
     @IBOutlet weak var tipShadeAlpha: UIView!
     @IBOutlet weak var totalShadeAlpha: UIView!
