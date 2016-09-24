@@ -16,7 +16,7 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 * [X] UI animations
 * [X] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
+* [X] Using locale-specific currency and currency thousands separators.
 * [X] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
@@ -67,4 +67,4 @@ OPTIONAL FEATURES:
 Autolayout for all the views.
 UIAnimation to change the alpha values of the tips and total amount field before and after user inputs the bill amount.
 
-![alt tag](https://cloud.githubusercontent.com/assets/5937001/18765684/9fe41be0-80cb-11e6-8afe-4f0e798b0042.gif)
+![alt tag](http://www.i.imgur.com/a3Wr0Yv.gif)
