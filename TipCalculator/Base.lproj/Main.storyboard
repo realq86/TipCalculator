@@ -190,7 +190,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="w30-kH-3VX">
-                        <barButtonItem key="backBarButtonItem" title="Calc" id="8iq-9s-fCt"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8iq-9s-fCt"/>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="1wH-ZR-5TG">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
