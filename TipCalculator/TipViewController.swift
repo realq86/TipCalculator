@@ -15,17 +15,18 @@ class TipViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
+    @IBOutlet weak var tipShadeAlpha: UIView!
+    @IBOutlet weak var totalShadeAlpha: UIView!
     
     let tipAmountArray = [0.15, 0.20, 0.25]
-    
     let tipDecimalArray = [".15", ".2", ".25"]
     var tipValue = 0.00
     var totalValue = 0.00
     let decimalHandler = NSDecimalNumberHandler(roundingMode: .up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
     let currencyFormatter = NumberFormatter()
     
-    @IBOutlet weak var tipShadeAlpha: UIView!
-    @IBOutlet weak var totalShadeAlpha: UIView!
+    
+
     
     
     override func viewDidLoad() {
