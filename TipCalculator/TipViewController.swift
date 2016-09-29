@@ -25,15 +25,10 @@ class TipViewController: UIViewController {
     let decimalHandler = NSDecimalNumberHandler(roundingMode: .up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
     let currencyFormatter = NumberFormatter()
     
-    
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //This can be moved to viewWillAppear if it is desired for the keyboard to pop up even on returning from Settings.
-        self.billLabel.becomeFirstResponder()
 
         print("viewDidLoad")
         
@@ -41,7 +36,6 @@ class TipViewController: UIViewController {
         self.tipShadeAlpha.alpha = 0.1;
         self.totalShadeAlpha.alpha = 0.1;
         
-        self.billLabel.text = "0.00"
         self.tipLabel.text = "0.00"
         self.totalLabel.text = "0.00"
 
@@ -51,6 +45,7 @@ class TipViewController: UIViewController {
         print("viewWillAppear")
         self.loadDefualtSettings()
         self.updateAllFields()
+        self.updateViews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +55,8 @@ class TipViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("view will disappear")
+        self.saveBillAmount()
+        print("view will disappear \(self.billLabel.text)")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -80,8 +76,23 @@ class TipViewController: UIViewController {
         let defaultLevel = userDefualts.integer(forKey: "Defualt_Tip_Level")
         self.setCurrentTipLevel(defaultLevel)
         
+        let lastBill = userDefualts.string(forKey: "Last_Bill_Amount")
+        if lastBill == "" || lastBill == nil {
+            self.billLabel.text = "0.00"
+            self.billLabel.becomeFirstResponder()
+        }
+        else {
+            self.billLabel.text = lastBill
+        }
+        
         self.currencyFormatter.numberStyle = .currency
     }
+    
+    func saveBillAmount() {
+        let userDefualts = UserDefaults.standard
+        userDefualts.set(self.billLabel.text, forKey: "Last_Bill_Amount")
+    }
+
 
 
 /*       View action code   */
@@ -96,16 +107,25 @@ class TipViewController: UIViewController {
         self.updateAllFields()
         
         //Return alpha values of tips and total label back to 1.
+        self.updateViews()
+    }
+    
+    @IBAction func editingDidBegin(_ sender: AnyObject) {
+        
+        self.fadeViews()
+    }
+    
+    func updateViews() {
         weak var weakSelf = self
+
         UIView.animate(withDuration: 0.5) {
-            var strongSelf = weakSelf
+            let strongSelf = weakSelf
             strongSelf?.tipShadeAlpha.alpha = 1
             strongSelf?.totalShadeAlpha.alpha = 1
         }
     }
     
-    @IBAction func editingDidBegin(_ sender: AnyObject) {
-        
+    func fadeViews() {
         //Clear labels when editing begins.
         self.billLabel.text = ""
         self.tipLabel.text = ""
@@ -113,7 +133,6 @@ class TipViewController: UIViewController {
         self.tipShadeAlpha.alpha = 0.1;
         self.totalShadeAlpha.alpha = 0.1;
     }
-    
     
 /*       View manipulation code   */
     
@@ -185,6 +204,9 @@ class TipViewController: UIViewController {
         return costDecimal.adding(tipDecimal)
     }
     
+/*         Persisent Code   */
+    
+
 
 }
 
