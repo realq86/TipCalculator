@@ -211,8 +211,26 @@ class TipViewController: UIViewController {
         return costDecimal.adding(tipDecimal)
     }
     
-/*         Persisent Code   */
+/*         Time calculation Code   */
     
+    func nowIsMoreThanTenMinFrom(date:NSDate) -> Bool {
+        let tenMin = TimeInterval(60 * 10)
+        let tenMinLater = date.addingTimeInterval(tenMin)
+        
+        let now = NSDate()
+        if now.compare(tenMinLater as Date) == ComparisonResult.orderedAscending {
+            //now is before date, aka now is within 10 min of last save
+            return false
+        }
+        else if now.compare(tenMinLater as Date) == ComparisonResult.orderedDescending {
+            //now is after date, aka now is more than 10 min of last save
+            return true
+        }
+        else {
+            //Equal rare case of exactly 10 min
+            return true
+        }
+    }
 
 
 }
