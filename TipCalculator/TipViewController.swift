@@ -93,6 +93,8 @@ class TipViewController: UIViewController {
     func saveBillAmount() {
         let userDefualts = UserDefaults.standard
         userDefualts.set(self.billLabel.text, forKey: "Last_Bill_Amount")
+        print("save date \(NSDate())")
+        userDefualts.set(NSDate(), forKey: "Last_Bill_Time")
     }
 
 
