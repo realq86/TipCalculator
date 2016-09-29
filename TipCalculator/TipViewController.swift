@@ -70,6 +70,8 @@ class TipViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+/*      Setting default setting and access to NSUserDefaults    */
     func loadDefualtSettings() {
         let userDefualts = UserDefaults.standard
         
@@ -134,6 +136,8 @@ class TipViewController: UIViewController {
         self.totalShadeAlpha.alpha = 0.1;
     }
     
+    
+    
 /*       View manipulation code   */
     
     func changeTipToValue(_ value:Double) {
@@ -160,6 +164,7 @@ class TipViewController: UIViewController {
     func setCurrentTipLevel(_ level:Int) {
         self.tipLevelSegmentControll.selectedSegmentIndex = level
     }
+    
     
     
 /*       Math calculation code can be extracted to other class if needed   */
