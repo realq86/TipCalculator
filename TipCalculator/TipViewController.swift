@@ -79,7 +79,13 @@ class TipViewController: UIViewController {
         self.setCurrentTipLevel(defaultLevel)
         
         let lastBill = userDefualts.string(forKey: "Last_Bill_Amount")
-        if lastBill == "" || lastBill == nil {
+        
+        let lastDate = userDefualts.object(forKey: "Last_Bill_Time") as? NSDate
+        print("last date is \(lastDate), currentDate is \(Date())")
+        
+        let moreThanTen = (lastDate != nil) ? self.nowIsMoreThanTenMinFrom(date: lastDate!): false
+        
+        if lastBill == "" || lastBill == nil || moreThanTen {
             self.billLabel.text = "0.00"
             self.billLabel.becomeFirstResponder()
         }
