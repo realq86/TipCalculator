@@ -100,10 +100,10 @@ class TipViewController: UIViewController {
     }
     
     func saveBillAmount() {
-        let userDefualts = UserDefaults.standard
-        userDefualts.set(self.billLabel.text, forKey: "Last_Bill_Amount")
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(self.billLabel.text, forKey: "Last_Bill_Amount")
         print("save date \(NSDate())")
-        userDefualts.set(NSDate(), forKey: "Last_Bill_Time")
+        userDefaults.set(NSDate(), forKey: "Last_Bill_Time")
     }
 
 
@@ -113,10 +113,23 @@ class TipViewController: UIViewController {
     func setTheme() {
         self.tipShade.alpha = 0.1;
         self.totalShade.alpha = 0.1;
-        self.billShade.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-        self.tipShade.backgroundColor = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
-        self.totalShade.backgroundColor = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
-        self.segmentShade.backgroundColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        
+        //load themes or use default if there has not been one chosen
+        let userDefaults = UserDefaults.standard
+        var colorA = userDefaults.float(forKey: "Color_A")
+        colorA = (colorA != 0.0) ? colorA : 51/255
+        
+        var colorB = userDefaults.float(forKey: "Color_B")
+        colorB = (colorB != 0.0) ? colorB : 76/255
+        
+        var colorC = userDefaults.float(forKey: "Color_C")
+        colorC = (colorC != 0.0) ? colorC : 102/255
+        
+        //Set shade RGB
+        self.billShade.backgroundColor = UIColor(colorLiteralRed: colorA, green: colorA, blue: colorA, alpha: 1)
+        self.tipShade.backgroundColor = UIColor(colorLiteralRed: colorB, green: colorB, blue: colorB, alpha: 1)
+        self.totalShade.backgroundColor = UIColor(colorLiteralRed: colorB, green: colorB, blue: colorB, alpha: 1)
+        self.segmentShade.backgroundColor = UIColor(colorLiteralRed: colorC, green: colorC, blue: colorC, alpha: 1)
     }
     
     @IBAction func touchOutsideTextField(_ sender: AnyObject) {
