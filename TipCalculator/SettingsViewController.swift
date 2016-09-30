@@ -30,6 +30,11 @@ class SettingsViewController: UIViewController {
 //        self.fourthPane.isHidden = true
         self.fifthPane.isHidden = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateTheme()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,6 +68,8 @@ class SettingsViewController: UIViewController {
         let segmentColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
         let segmentColorData = NSKeyedArchiver.archivedData(withRootObject: segmentColor)
         userDefaults.set(segmentColorData, forKey: "Color_C")
+        
+        self.updateTheme()
     }
     
     
@@ -80,6 +87,8 @@ class SettingsViewController: UIViewController {
         let segmentColor = UIColor(colorLiteralRed: 104/255, green: 100/255, blue: 88/255, alpha: 1)
         let segmentColorData = NSKeyedArchiver.archivedData(withRootObject: segmentColor)
         userDefaults.set(segmentColorData, forKey: "Color_C")
+        
+        self.updateTheme()
     }
     
     func updateTheme() {
