@@ -68,3 +68,5 @@ Autolayout for all the views.
 UIAnimation to change the alpha values of the tips and total amount field before and after user inputs the bill amount.
 
 ![alt tag](http://www.i.imgur.com/a3Wr0Yv.gif)
+![alt tag](http://i.imgur.com/9No5daE.gif)
+
