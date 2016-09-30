@@ -18,15 +18,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var thirdPane: UIView!
     @IBOutlet weak var fifthPane: UIView!
     
+    @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var brownButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadDefualtSettings()
         // Do any additional setup after loading the view.
-        self.secondPane.isHidden = true
-        self.thirdPane.isHidden = true
+        self.secondPane.isHidden = false
+        self.thirdPane.isHidden = false
 //        self.fourthPane.isHidden = true
-        self.fifthPane.isHidden = true
+        self.fifthPane.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,4 +47,48 @@ class SettingsViewController: UIViewController {
         let userDefualts = UserDefaults.standard
         userDefualts.set(tipLevel, forKey: "Defualt_Tip_Level")
     }
+    
+    
+    @IBAction func touchOnBlack(_ sender: AnyObject) {
+        let userDefaults = UserDefaults.standard
+        
+        let billColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        let billColorData = NSKeyedArchiver.archivedData(withRootObject: billColor)
+        userDefaults.set(billColorData, forKey: "Color_A")
+        
+        let tipTotalColor = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        let tipTotalColorData = NSKeyedArchiver.archivedData(withRootObject: tipTotalColor)
+        userDefaults.set(tipTotalColorData, forKey: "Color_B")
+        
+        let segmentColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        let segmentColorData = NSKeyedArchiver.archivedData(withRootObject: segmentColor)
+        userDefaults.set(segmentColorData, forKey: "Color_C")
+    }
+    
+    
+    @IBAction func touchOnBrown(_ sender: AnyObject) {
+        let userDefaults = UserDefaults.standard
+        
+        let billColor = UIColor(colorLiteralRed: 161/255, green: 113/255, blue: 57/255, alpha: 1)
+        let billColorData = NSKeyedArchiver.archivedData(withRootObject: billColor)
+        userDefaults.set(billColorData, forKey: "Color_A")
+        
+        let tipTotalColor = UIColor(colorLiteralRed: 126/255, green: 81/255, blue: 40/255, alpha: 1)
+        let tipTotalColorData = NSKeyedArchiver.archivedData(withRootObject: tipTotalColor)
+        userDefaults.set(tipTotalColorData, forKey: "Color_B")
+        
+        let segmentColor = UIColor(colorLiteralRed: 104/255, green: 100/255, blue: 88/255, alpha: 1)
+        let segmentColorData = NSKeyedArchiver.archivedData(withRootObject: segmentColor)
+        userDefaults.set(segmentColorData, forKey: "Color_C")
+    }
+    
+    func updateTheme() {
+        
+        
+        
+    }
+    
+    
+    
+    
 }
