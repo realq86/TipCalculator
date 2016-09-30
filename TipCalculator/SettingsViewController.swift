@@ -84,8 +84,30 @@ class SettingsViewController: UIViewController {
     
     func updateTheme() {
         
+        let userDefaults = UserDefaults.standard
+        
+        //Set Instruction Pane
+        var colorA = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        if let colorAData = userDefaults.data(forKey: "Color_A") {
+            colorA = (NSKeyedUnarchiver.unarchiveObject(with: colorAData) as? UIColor)!
+        }
+        self.instructionPane.backgroundColor = colorA
         
         
+        //Second Pane
+        var colorB = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        if let colorBData = userDefaults.data(forKey: "Color_B") {
+            colorB = (NSKeyedUnarchiver.unarchiveObject(with: colorBData) as? UIColor)!
+        }
+        self.secondPane.backgroundColor = colorB
+        
+        
+        //Set segment shade
+        var colorC = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        if let colorCData = userDefaults.data(forKey: "Color_C") {
+            colorC = (NSKeyedUnarchiver.unarchiveObject(with: colorCData) as? UIColor)!
+        }
+        self.segmentView.backgroundColor = colorC
     }
     
     
