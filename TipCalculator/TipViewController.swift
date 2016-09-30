@@ -15,8 +15,10 @@ class TipViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
-    @IBOutlet weak var tipShadeAlpha: UIView!
-    @IBOutlet weak var totalShadeAlpha: UIView!
+    @IBOutlet weak var tipShade: UIView!
+    @IBOutlet weak var totalShade: UIView!
+    @IBOutlet weak var billShade: UIView!
+    @IBOutlet weak var segmentShade: UIView!
     
     let tipAmountArray = [0.15, 0.20, 0.25]
     let tipDecimalArray = [".15", ".2", ".25"]
@@ -32,9 +34,10 @@ class TipViewController: UIViewController {
 
         print("viewDidLoad")
         
+        self.setTheme()
+        
         //Lead with Tips and Total alpha setting at 10%
-        self.tipShadeAlpha.alpha = 0.1;
-        self.totalShadeAlpha.alpha = 0.1;
+
         
         self.tipLabel.text = "0.00"
         self.totalLabel.text = "0.00"
@@ -106,6 +109,16 @@ class TipViewController: UIViewController {
 
 
 /*       View action code   */
+    
+    func setTheme() {
+        self.tipShade.alpha = 0.1;
+        self.totalShade.alpha = 0.1;
+        self.billShade.backgroundColor = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        self.tipShade.backgroundColor = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        self.totalShade.backgroundColor = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        self.segmentShade.backgroundColor = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+    }
+    
     @IBAction func touchOutsideTextField(_ sender: AnyObject) {
         print("Touch outside textfield")
         
@@ -130,8 +143,8 @@ class TipViewController: UIViewController {
 
         UIView.animate(withDuration: 0.5) {
             let strongSelf = weakSelf
-            strongSelf?.tipShadeAlpha.alpha = 1
-            strongSelf?.totalShadeAlpha.alpha = 1
+            strongSelf?.tipShade.alpha = 1
+            strongSelf?.totalShade.alpha = 1
         }
     }
     
@@ -140,8 +153,8 @@ class TipViewController: UIViewController {
         self.billLabel.text = ""
         self.tipLabel.text = ""
         self.totalLabel.text = ""
-        self.tipShadeAlpha.alpha = 0.1;
-        self.totalShadeAlpha.alpha = 0.1;
+        self.tipShade.alpha = 0.1;
+        self.totalShade.alpha = 0.1;
     }
     
     

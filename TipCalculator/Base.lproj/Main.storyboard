@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="sOc-86-fUR" secondAttribute="bottom" constant="10" id="DJt-PP-EwK"/>
                                             <constraint firstItem="sOc-86-fUR" firstAttribute="top" secondItem="V2h-IE-PW8" secondAttribute="top" constant="10" id="a91-ve-h8U"/>
@@ -200,11 +200,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="billLabel" destination="sOc-86-fUR" id="7WX-v7-1vR"/>
+                        <outlet property="billShade" destination="V2h-IE-PW8" id="Hjn-NX-agw"/>
+                        <outlet property="segmentShade" destination="ynm-Hp-jj0" id="ct7-gu-SCX"/>
                         <outlet property="tipLabel" destination="Sjz-5s-dyr" id="PTp-MV-Xkx"/>
                         <outlet property="tipLevelSegmentControll" destination="pxP-aI-Rgi" id="Zg9-na-h6p"/>
-                        <outlet property="tipShadeAlpha" destination="oRT-np-hFJ" id="rzh-kf-8S2"/>
+                        <outlet property="tipShade" destination="oRT-np-hFJ" id="y3Q-vm-1l6"/>
                         <outlet property="totalLabel" destination="UMc-aI-fZj" id="wpg-l1-gNq"/>
-                        <outlet property="totalShadeAlpha" destination="66L-eC-dmb" id="KeQ-9N-aCG"/>
+                        <outlet property="totalShade" destination="66L-eC-dmb" id="1au-fF-r66"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
