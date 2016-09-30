@@ -34,7 +34,6 @@ class TipViewController: UIViewController {
 
         print("viewDidLoad")
         
-        self.setTheme()
         
         //Lead with Tips and Total alpha setting at 10%
 
@@ -46,6 +45,7 @@ class TipViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
+        self.setTheme()
         self.loadDefualtSettings()
         self.updateAllFields()
         self.updateViews()
@@ -116,20 +116,30 @@ class TipViewController: UIViewController {
         
         //load themes or use default if there has not been one chosen
         let userDefaults = UserDefaults.standard
-        var colorA = userDefaults.float(forKey: "Color_A")
-        colorA = (colorA != 0.0) ? colorA : 51/255
         
-        var colorB = userDefaults.float(forKey: "Color_B")
-        colorB = (colorB != 0.0) ? colorB : 76/255
+        //Set billShade
+        var colorA = UIColor(colorLiteralRed: 51/255, green: 51/255, blue: 51/255, alpha: 1)
+        if let colorAData = userDefaults.data(forKey: "Color_A") {
+            colorA = (NSKeyedUnarchiver.unarchiveObject(with: colorAData) as? UIColor)!
+        }
+        self.billShade.backgroundColor = colorA
         
-        var colorC = userDefaults.float(forKey: "Color_C")
-        colorC = (colorC != 0.0) ? colorC : 102/255
         
-        //Set shade RGB
-        self.billShade.backgroundColor = UIColor(colorLiteralRed: colorA, green: colorA, blue: colorA, alpha: 1)
-        self.tipShade.backgroundColor = UIColor(colorLiteralRed: colorB, green: colorB, blue: colorB, alpha: 1)
-        self.totalShade.backgroundColor = UIColor(colorLiteralRed: colorB, green: colorB, blue: colorB, alpha: 1)
-        self.segmentShade.backgroundColor = UIColor(colorLiteralRed: colorC, green: colorC, blue: colorC, alpha: 1)
+        //Set tip and total shade
+        var colorB = UIColor(colorLiteralRed: 76/255, green: 76/255, blue: 76/255, alpha: 1)
+        if let colorBData = userDefaults.data(forKey: "Color_B") {
+            colorB = (NSKeyedUnarchiver.unarchiveObject(with: colorBData) as? UIColor)!
+        }
+        self.tipShade.backgroundColor = colorB
+        self.totalShade.backgroundColor = colorB
+        
+        
+        //Set segment shade
+        var colorC = UIColor(colorLiteralRed: 102/255, green: 102/255, blue: 102/255, alpha: 1)
+        if let colorCData = userDefaults.data(forKey: "Color_C") {
+            colorC = (NSKeyedUnarchiver.unarchiveObject(with: colorCData) as? UIColor)!
+        }
+        self.segmentShade.backgroundColor = colorC
     }
     
     @IBAction func touchOutsideTextField(_ sender: AnyObject) {
