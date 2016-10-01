@@ -293,6 +293,10 @@ class TipViewController: UIViewController {
         }
     }
 
+    @IBAction func longPress(_ sender: AnyObject) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "changeLevelVC") as? ChangeLevelViewController
+        self.present(nextVC!, animated: true, completion: nil)
+    }
 
 }
 
