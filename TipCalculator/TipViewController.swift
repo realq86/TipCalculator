@@ -45,6 +45,7 @@ class TipViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
+        self.loadLevels()
         self.setTheme()
         self.loadDefualtSettings()
         self.updateAllFields()
@@ -213,6 +214,24 @@ class TipViewController: UIViewController {
     
 /*       Math calculation code can be extracted to other class if needed   */
     
+    func loadLevels() {
+        //load default tip levels
+        let userDefaults = UserDefaults.standard
+        
+        if let fetchedLevel = userDefaults.object(forKey: "Levels") {
+            self.tipAmountArray = fetchedLevel as! [Double]
+        }
+        
+        self.tipLevelSegmentControll.removeAllSegments()
+
+        //Make strings from tipLevel's Double for segmentControl
+        for (index, level) in self.tipAmountArray.enumerated() {
+            let tipLevelInt = Int(level*100)
+            let tipLevelString = "\(tipLevelInt)%"
+            self.tipLevelSegmentControll.insertSegment(withTitle: tipLevelString, at: index, animated: false)
+        }
+    }
+    
     func updateAllFields() {
 
         var billString:String
@@ -236,8 +255,6 @@ class TipViewController: UIViewController {
     }
     
     func calculateNewTipDecimal(_ decimal:NSDecimalNumber) ->NSDecimalNumber {
-        let tipLevel = self.tipDecimalArray[self.tipLevelSegmentControll.selectedSegmentIndex]
-        let tipLevelDecimal = NSDecimalNumber(string: tipLevel)
         let tipLevel = self.tipAmountArray[self.tipLevelSegmentControll.selectedSegmentIndex]
         let tipLevelDecimal = NSDecimalNumber(floatLiteral: tipLevel)
         print(tipLevelDecimal)
