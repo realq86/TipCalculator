@@ -278,12 +278,16 @@
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="dER-b1-paF" firstAttribute="leading" secondItem="ZYF-L0-4aq" secondAttribute="leading" constant="20" id="78K-xB-vCK"/>
                                     <constraint firstAttribute="trailing" secondItem="dER-b1-paF" secondAttribute="trailing" constant="20" id="DQF-Vx-VqP"/>
                                     <constraint firstItem="dER-b1-paF" firstAttribute="centerY" secondItem="ZYF-L0-4aq" secondAttribute="centerY" id="PhK-g9-Fd4"/>
                                     <constraint firstItem="dER-b1-paF" firstAttribute="centerX" secondItem="ZYF-L0-4aq" secondAttribute="centerX" id="YLs-nf-Yh3"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="USe-tx-RAj" appends="YES" id="DEc-IQ-MVk"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Not-6f-zBd">
                                 <subviews>
@@ -379,8 +383,51 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7CJ-lf-Tdz" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="USe-tx-RAj">
+                    <connections>
+                        <action selector="longPressOnSegment:" destination="iia-J2-MBK" id="Mq0-LD-gOB"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1664.8" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1652" y="36"/>
+        </scene>
+        <!--Change Level View Controller-->
+        <scene sceneID="3Ao-Q9-60o">
+            <objects>
+                <viewController storyboardIdentifier="changeLevelVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LDc-9Z-vEm" customClass="ChangeLevelViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="huG-8V-CXf"/>
+                        <viewControllerLayoutGuide type="bottom" id="8zy-q8-G4e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zgQ-pQ-5fs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H56-8e-eMu">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="touchOnDone:" destination="LDc-9Z-vEm" eventType="touchUpInside" id="CAg-cA-HPm"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xje-Ni-eIN">
+                                <frame key="frameInset" minX="127" minY="179" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H56-8e-eMu" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" id="HSb-qg-0kA"/>
+                            <constraint firstItem="H56-8e-eMu" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="uXu-tY-n54"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ol6-f2-2ll" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2442" y="36"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
