@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateTheme()
+        self.loadLevels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +47,25 @@ class SettingsViewController: UIViewController {
         let defaultLevel = userDefualts.integer(forKey: "Defualt_Tip_Level")
         self.tipLevelSegmentControll.selectedSegmentIndex = defaultLevel
     }
+    
+    func loadLevels() {
+        //load default tip levels
+        let userDefaults = UserDefaults.standard
+        var tipAmountArray = [0.15,0.20,0.25]
+        if let fetchedLevel = userDefaults.object(forKey: "Levels") {
+            tipAmountArray = fetchedLevel as! [Double]
+        }
+        
+        self.tipLevelSegmentControll.removeAllSegments()
+        
+        //Make strings from tipLevel's Double for segmentControl
+        for (index, level) in tipAmountArray.enumerated() {
+            let tipLevelInt = Int(level*100)
+            let tipLevelString = "\(tipLevelInt)%"
+            self.tipLevelSegmentControll.insertSegment(withTitle: tipLevelString, at: index, animated: false)
+        }
+    }
+    
     
     @IBAction func tipLevelSegmentChanged(_ sender: AnyObject) {
         let tipLevel = self.tipLevelSegmentControll.selectedSegmentIndex
@@ -120,6 +140,14 @@ class SettingsViewController: UIViewController {
     }
     
     
+    @IBAction func longPressOnSegment(_ sender: AnyObject) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "changeLevelVC") as? ChangeLevelViewController
+//
+//        self.navigationController?.show(nextVC!, sender: nil)
+        self.present(nextVC!, animated: true, completion: nil)
+        
+
+    }
     
     
 }
