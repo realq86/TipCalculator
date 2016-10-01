@@ -142,8 +142,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func longPressOnSegment(_ sender: AnyObject) {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "changeLevelVC") as? ChangeLevelViewController
-//
-//        self.navigationController?.show(nextVC!, sender: nil)
         self.present(nextVC!, animated: true, completion: nil)
         
 
