@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ChangeLevelViewController: UIViewController {
+class ChangeLevelViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
+    @IBOutlet weak var textField: UITextField!
     var tipAmountArray = [0.15,0.20,0.25]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,10 @@ class ChangeLevelViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadLevels()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +57,10 @@ class ChangeLevelViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func tapOutside(_ sender: AnyObject) {
+        
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

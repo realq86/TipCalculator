@@ -409,23 +409,46 @@
                                     <action selector="touchOnDone:" destination="LDc-9Z-vEm" eventType="touchUpInside" id="CAg-cA-HPm"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xje-Ni-eIN">
-                                <frame key="frameInset" minX="127" minY="179" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xje-Ni-eIN">
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv1-3Y-HIC">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LDc-9Z-vEm" id="H7G-qD-6wG"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="AsA-es-OZs"/>
                             <constraint firstItem="H56-8e-eMu" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" id="HSb-qg-0kA"/>
+                            <constraint firstItem="xje-Ni-eIN" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" multiplier="0.5" id="LeC-gl-v8F"/>
+                            <constraint firstItem="xje-Ni-eIN" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="geD-Eq-DcJ"/>
+                            <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" multiplier="0.1" id="sZF-97-o3r"/>
                             <constraint firstItem="H56-8e-eMu" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="uXu-tY-n54"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ulS-Hf-S2y" appends="YES" id="uf3-i3-75w"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="fv1-3Y-HIC" id="XQz-zG-w9H"/>
+                        <outlet property="tipLevelSegmentControll" destination="xje-Ni-eIN" id="8wb-7m-4wk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ol6-f2-2ll" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ulS-Hf-S2y">
+                    <connections>
+                        <action selector="tapOutside:" destination="LDc-9Z-vEm" id="mQK-KR-GGH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2442" y="36"/>
         </scene>
