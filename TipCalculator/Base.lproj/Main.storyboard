@@ -148,12 +148,16 @@
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerY" secondItem="ynm-Hp-jj0" secondAttribute="centerY" id="TbB-eN-FcG"/>
                                             <constraint firstItem="pxP-aI-Rgi" firstAttribute="leading" secondItem="ynm-Hp-jj0" secondAttribute="leading" constant="10" id="pBO-9o-tmg"/>
                                             <constraint firstItem="pxP-aI-Rgi" firstAttribute="centerX" secondItem="ynm-Hp-jj0" secondAttribute="centerX" id="py3-zj-Gpn"/>
                                             <constraint firstAttribute="trailing" secondItem="pxP-aI-Rgi" secondAttribute="trailing" constant="10" id="skc-uE-cjn"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="2jD-y9-OAI" appends="YES" id="7ci-xz-8pb"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,6 +219,11 @@
                         <action selector="touchOutsideTextField:" destination="BYZ-38-t0r" id="BnY-yN-sHW"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="2jD-y9-OAI">
+                    <connections>
+                        <action selector="longPress:" destination="BYZ-38-t0r" id="0e9-tz-pVO"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="963.75" y="36.25"/>
         </scene>
@@ -403,36 +412,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H56-8e-eMu">
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="touchOnDone:" destination="LDc-9Z-vEm" eventType="touchUpInside" id="CAg-cA-HPm"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xje-Ni-eIN">
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv1-3Y-HIC">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="LDc-9Z-vEm" id="H7G-qD-6wG"/>
-                                </connections>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2P-gj-ZKC">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change the value for each level!" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au3-zF-hgr">
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Au3-zF-hgr" firstAttribute="leading" secondItem="E2P-gj-ZKC" secondAttribute="leading" constant="8" id="b3S-ft-5Yc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Au3-zF-hgr" secondAttribute="trailing" constant="20" id="dHd-4h-e2P"/>
+                                    <constraint firstItem="Au3-zF-hgr" firstAttribute="centerY" secondItem="E2P-gj-ZKC" secondAttribute="centerY" id="uFJ-hL-CSH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPT-Td-sDi">
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c1z-th-aJy">
+                                        <segments>
+                                            <segment title="15%"/>
+                                            <segment title="20%"/>
+                                            <segment title="25%"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="c1z-th-aJy" firstAttribute="centerX" secondItem="tPT-Td-sDi" secondAttribute="centerX" id="2Kt-rX-F2V"/>
+                                    <constraint firstItem="c1z-th-aJy" firstAttribute="leading" secondItem="tPT-Td-sDi" secondAttribute="leading" constant="20" id="KAs-d8-uFp"/>
+                                    <constraint firstItem="c1z-th-aJy" firstAttribute="centerY" secondItem="tPT-Td-sDi" secondAttribute="centerY" id="b44-1U-jRn"/>
+                                    <constraint firstAttribute="trailing" secondItem="c1z-th-aJy" secondAttribute="trailing" constant="20" id="mCa-2t-ZQZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tU-bk-IUb">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv1-3Y-HIC">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="LDc-9Z-vEm" id="H7G-qD-6wG"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerY" secondItem="9tU-bk-IUb" secondAttribute="centerY" id="60X-p2-oTW"/>
+                                    <constraint firstItem="fv1-3Y-HIC" firstAttribute="width" secondItem="9tU-bk-IUb" secondAttribute="width" multiplier="0.3" id="Sh2-5R-loA"/>
+                                    <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerX" secondItem="9tU-bk-IUb" secondAttribute="centerX" id="hrO-DO-Neb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iZ-jg-bL6">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJl-LN-QUq">
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="21"/>
+                                        <state key="normal" title="DONE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchOnDone:" destination="LDc-9Z-vEm" eventType="touchUpInside" id="pKf-xJ-Cgd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="oJl-LN-QUq" firstAttribute="centerY" secondItem="0iZ-jg-bL6" secondAttribute="centerY" id="IJQ-Sc-Beq"/>
+                                    <constraint firstItem="oJl-LN-QUq" firstAttribute="centerX" secondItem="0iZ-jg-bL6" secondAttribute="centerX" id="Uct-62-Uht"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="AsA-es-OZs"/>
-                            <constraint firstItem="H56-8e-eMu" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" id="HSb-qg-0kA"/>
-                            <constraint firstItem="xje-Ni-eIN" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" multiplier="0.5" id="LeC-gl-v8F"/>
-                            <constraint firstItem="xje-Ni-eIN" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="geD-Eq-DcJ"/>
-                            <constraint firstItem="fv1-3Y-HIC" firstAttribute="centerY" secondItem="zgQ-pQ-5fs" secondAttribute="centerY" multiplier="0.1" id="sZF-97-o3r"/>
-                            <constraint firstItem="H56-8e-eMu" firstAttribute="centerX" secondItem="zgQ-pQ-5fs" secondAttribute="centerX" id="uXu-tY-n54"/>
+                            <constraint firstItem="0iZ-jg-bL6" firstAttribute="leading" secondItem="zgQ-pQ-5fs" secondAttribute="leading" id="9uC-eQ-7wb"/>
+                            <constraint firstItem="0iZ-jg-bL6" firstAttribute="height" secondItem="zgQ-pQ-5fs" secondAttribute="height" multiplier="0.1" id="C1h-nh-9o7"/>
+                            <constraint firstAttribute="trailing" secondItem="E2P-gj-ZKC" secondAttribute="trailing" id="G9A-tG-uIe"/>
+                            <constraint firstItem="tPT-Td-sDi" firstAttribute="height" secondItem="zgQ-pQ-5fs" secondAttribute="height" multiplier="0.1" id="Jfr-ZL-TFc"/>
+                            <constraint firstItem="tPT-Td-sDi" firstAttribute="top" secondItem="E2P-gj-ZKC" secondAttribute="bottom" id="XIG-HP-TUR"/>
+                            <constraint firstItem="0iZ-jg-bL6" firstAttribute="top" secondItem="9tU-bk-IUb" secondAttribute="bottom" id="Xze-We-6zd"/>
+                            <constraint firstItem="tPT-Td-sDi" firstAttribute="leading" secondItem="zgQ-pQ-5fs" secondAttribute="leading" id="bdJ-Vp-Rse"/>
+                            <constraint firstItem="9tU-bk-IUb" firstAttribute="leading" secondItem="zgQ-pQ-5fs" secondAttribute="leading" id="cyD-WC-hqg"/>
+                            <constraint firstItem="9tU-bk-IUb" firstAttribute="top" secondItem="tPT-Td-sDi" secondAttribute="bottom" id="dii-iq-KzS"/>
+                            <constraint firstAttribute="trailing" secondItem="9tU-bk-IUb" secondAttribute="trailing" id="dq8-7e-A6t"/>
+                            <constraint firstAttribute="trailing" secondItem="0iZ-jg-bL6" secondAttribute="trailing" id="miD-Je-dx9"/>
+                            <constraint firstAttribute="trailing" secondItem="tPT-Td-sDi" secondAttribute="trailing" id="oR1-6z-CWO"/>
+                            <constraint firstItem="E2P-gj-ZKC" firstAttribute="leading" secondItem="zgQ-pQ-5fs" secondAttribute="leading" id="qQa-ch-o83"/>
+                            <constraint firstItem="E2P-gj-ZKC" firstAttribute="top" secondItem="zgQ-pQ-5fs" secondAttribute="top" id="vnl-9Q-YgL"/>
+                            <constraint firstItem="9tU-bk-IUb" firstAttribute="height" secondItem="zgQ-pQ-5fs" secondAttribute="height" multiplier="0.15" id="voy-wh-gwu"/>
+                            <constraint firstItem="E2P-gj-ZKC" firstAttribute="height" secondItem="zgQ-pQ-5fs" secondAttribute="height" multiplier="0.1" id="xmF-bK-S0M"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ulS-Hf-S2y" appends="YES" id="uf3-i3-75w"/>
@@ -440,7 +510,7 @@
                     </view>
                     <connections>
                         <outlet property="textField" destination="fv1-3Y-HIC" id="XQz-zG-w9H"/>
-                        <outlet property="tipLevelSegmentControll" destination="xje-Ni-eIN" id="8wb-7m-4wk"/>
+                        <outlet property="tipLevelSegmentControll" destination="c1z-th-aJy" id="xoS-sQ-bmO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ol6-f2-2ll" userLabel="First Responder" sceneMemberID="firstResponder"/>
