@@ -10,6 +10,8 @@ import UIKit
 
 class ChangeLevelViewController: UIViewController {
 
+    @IBOutlet weak var tipLevelSegmentControll: UISegmentedControl!
+    var tipAmountArray = [0.15,0.20,0.25]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,31 @@ class ChangeLevelViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    func loadLevels() {
+        //load default tip levels
+        let userDefaults = UserDefaults.standard
+        if let fetchedLevel = userDefaults.object(forKey: "Levels") {
+            self.tipAmountArray = fetchedLevel as! [Double]
+        }
+        
+        self.tipLevelSegmentControll.removeAllSegments()
+        
+        //Make strings from tipLevel's Double for segmentControl
+        for (index, level) in self.tipAmountArray.enumerated() {
+            let tipLevelInt = Int(level*100)
+            let tipLevelString = "\(tipLevelInt)%"
+            self.tipLevelSegmentControll.insertSegment(withTitle: tipLevelString, at: index, animated: false)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let lastSelected = self.tipLevelSegmentControll.selectedSegmentIndex
+        
+        self.tipLevelSegmentControll.setTitle("55", forSegmentAt: lastSelected)
     }
     
     @IBAction func touchOnDone(_ sender: AnyObject) {
