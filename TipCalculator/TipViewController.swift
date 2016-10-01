@@ -20,8 +20,7 @@ class TipViewController: UIViewController {
     @IBOutlet weak var billShade: UIView!
     @IBOutlet weak var segmentShade: UIView!
     
-    let tipAmountArray = [0.15, 0.20, 0.25]
-    let tipDecimalArray = [".15", ".2", ".25"]
+    var tipAmountArray = [0.15, 0.20, 0.25]
     var tipValue = 0.00
     var totalValue = 0.00
     let decimalHandler = NSDecimalNumberHandler(roundingMode: .up, scale: 2, raiseOnExactness: false, raiseOnOverflow: false, raiseOnUnderflow: false, raiseOnDivideByZero: true)
@@ -239,6 +238,8 @@ class TipViewController: UIViewController {
     func calculateNewTipDecimal(_ decimal:NSDecimalNumber) ->NSDecimalNumber {
         let tipLevel = self.tipDecimalArray[self.tipLevelSegmentControll.selectedSegmentIndex]
         let tipLevelDecimal = NSDecimalNumber(string: tipLevel)
+        let tipLevel = self.tipAmountArray[self.tipLevelSegmentControll.selectedSegmentIndex]
+        let tipLevelDecimal = NSDecimalNumber(floatLiteral: tipLevel)
         print(tipLevelDecimal)
         print(decimal)
         let tip = decimal.multiplying(by: tipLevelDecimal, withBehavior: self.decimalHandler)
