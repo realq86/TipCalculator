@@ -23,6 +23,7 @@ The following **additional** features are implemented:
 * [X] Autolayout in Storyboard so design remain consistent in landscape mode.
 * [X] Use of NSDecimalNumber to increase percision towards the context of currency.
 * [X] Option to switch between two color theme in the setting's page.  Option is remembered between app launch.
+* [X] Option to change the % value of each of the 3 tip level by long pressing the segment control.
 
 Here's a walkthrough of implemented user stories:
 
